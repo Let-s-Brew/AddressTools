@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace BrewCode.AddressTools.Models;
+﻿namespace BrewCode.AddressTools.Models;
 
 public record CivicAddress
 {
