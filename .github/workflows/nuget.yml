@@ -31,4 +31,4 @@ jobs:
     - name: Package
       run: dotnet pack --no-restore -c Release -o out -v d
     - name: Deploy
-      run: dotnet nuget push "out/$CivicAddress.{{steps.cameta.outputs.version}}.nupkg" --source "github" --skip-duplicates
+      run: dotnet nuget push "out/CivicAddress.${{steps.cameta.outputs.package-version}}.nupkg" --source "github" -n
