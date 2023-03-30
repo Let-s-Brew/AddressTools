@@ -24,7 +24,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Pull Metadata
-      uses: get-net-sdk-project-versions-action@v1
+      uses: kzrnm/get-net-sdk-project-versions-action@v1
       id: cameta
       with:
         proj-path: CivicAddress/CivicAddress.csproj
