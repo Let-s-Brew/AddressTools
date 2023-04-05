@@ -1,8 +1,10 @@
-﻿namespace BrewCode.AddressTools.Models;
+﻿using System.Text.Json.Serialization;
+namespace BrewCode.AddressTools.Models;
 
 public record CivicAddress
 {
     public string[] Address { get; init; }
+    [NonSerialized] // Remove once validation tools are available
     public bool Validated = false; // TODO add validator APIs i.e. google maps/USPS
     public string City { get; init; }
     public State State { get; init; }
@@ -16,6 +18,8 @@ public record CivicAddress
 
     public CivicAddress(string address1, string address2, string city, State state, int zip, int zip4 = 0)
         : this(new string[] {address1, address2}, city, state, zip, zip4) { }
+
+    [JsonConstructor]
     public CivicAddress(string[] addressLines, string city, string state, int zip, int zip4 = 0)
     {
         State? s = StateFromString(state);
