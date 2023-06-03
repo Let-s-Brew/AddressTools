@@ -27,7 +27,7 @@ public static class States
     public static State Alabama = new State("Alabama", "AL");
     public static State Alaska = new State("Alaska", "AK");
     public static State Arizona = new State("Arizona", "AZ");
-    public static State Arkansas = new State("Arkansas", "AK");
+    public static State Arkansas = new State("Arkansas", "AR");
     public static State California = new State("California", "CA");
     public static State Colorado = new State("Colorado", "CO");
     public static State Connecticut = new State("Connecticut", "CT");
