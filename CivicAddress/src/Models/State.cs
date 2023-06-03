@@ -95,6 +95,12 @@ public static class States
         }
     }
 
+    /// <summary>
+    /// Lookup a State by the 2 letter abbreviation. (Ex.: CA returns <c>California</c> <c cref="State">State</c> object.
+    /// </summary>
+    /// <param name="abbreviation">The 2 letter abbreviation to use for the lookup. Case-insensitive</param>
+    /// <returns>A <c cref="State">State</c> object matching the state, or <c>null</c> if not matched</returns>
+    /// <exception cref="ArgumentException">Thrown if the abbreviation is not 2 letters in length.</exception>
     public static State? FromAbbreviation(string abbreviation)
     {
         if(abbreviation.Length != 2)
@@ -105,9 +111,29 @@ public static class States
         return _stateAbbrDict.ContainsKey(abbreviation) ? _stateAbbrDict[abbreviation] : null;
     }
 
+    /// <summary>
+    /// Lookup a State by name. Must match the full name, or <c>null</c> will be returned.
+    /// </summary>
+    /// <param name="name">State name as a string to search with. Case-insensitve</param>
+    /// <returns>A <c cref="State">State</c> object matching the state name, or <c>null</c> if not matched.</returns>
     public static State? FromName(string name)
     {
         name = name.ToUpper();
         return _stateNameDict.ContainsKey(name) ? _stateNameDict[name] : null;
     }
+
+    /// <summary>
+    /// A <c cref="List{State}">List</c> of all the US States as <c cref="State">State</c> objects..
+    /// </summary>
+    public static IEnumerable<State> StateList { get { return _states; } }
+
+    /// <summary>
+    /// A string <c cref="IEnumerable{string}">IEnumerable</c> of the State names for the 50 US States.
+    /// </summary>
+    public static IEnumerable<string> StateNames { get { return _stateNameDict.Keys.AsEnumerable(); } }
+
+    /// <summary>
+    /// A string <c cref="IEnumerable{string}">IEnumerable</c> of the 2 letter State abbrevations for the 50 US States.
+    /// </summary>
+    public static IEnumerable<string> StateAbbreviations { get { return _stateAbbrDict.Keys.AsEnumerable(); } }
 }
