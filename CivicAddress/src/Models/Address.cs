@@ -34,7 +34,7 @@ public record CivicAddress
         Zip4 = zip4;
     }
 
-    public CivicAddress(string[] addressLines, string city, State state, int zip, int zip4)
+    public CivicAddress(string[] addressLines, string city, State state, int zip, int zip4 = 0)
     {
         Address = addressLines;
         City = city;
